@@ -3,19 +3,19 @@
 Hello and welcome to this course!
 
 **Part II BBS Bioinformatics** - 15:00-17:00, 21 Jan 2019
-1. We begin by working through the [Orientation](Orientation.md) exercise. You can either copy what I am doing on the screen or work through it faster on your own. Refer to [Notes](Notes1.md) for some explanations and further examples.
-2. Attempt the [Exercises](Exercises1.md). [Answers](Answers1.md) to exercises are available but please only check them once you have given the exercises a fair try. I will be walking around the room if you have any questions.
+1. We begin by working through the [Orientation](Orientation.md) exercise. You can either copy what I am doing on the screen or work through it faster on your own. Refer to [Notes](Notes.md) for some explanations and further examples.
+2. Attempt the [Exercises](Exercises.md). [Answers](Answers.md) to exercises are available but please only check them once you have given the exercises a fair try. I will be walking around the room if you have any questions.
 
 ---
 ## Introduction to Unix shell - Part 1
 
 [Orientation](Orientation.md) - a guided exercise covering most basic commands.
 
-[Notes](Notes1.md) - reference style notes and links to many further resources.
+[Notes](Notes.md) - reference style notes and links to many further resources.
 
-[Exercises](Exercises1.md) - exercises covering text file processing.
+[Exercises](Exercises.md) - exercises covering text file processing.
 
-[Answers](Answers1.md) - answers to exercises.
+[Answers](Answers.md) - answers to exercises.
 
 
 ---
