@@ -22,7 +22,6 @@
 [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) - an introduction to programming with R by Grolemund.
 [Advanced R](http://adv-r.had.co.nz/) - a book about advanced programming with R by Wickham.
 
-
 ---
 ### Base R
 
