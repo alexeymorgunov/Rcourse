@@ -17,10 +17,11 @@
 
 [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) - a comprehensive list of cheatsheets for many R packages
 
-[R for Data Science](https://r4ds.had.co.nz/) - a book by Grolemund and Wickham, which should be everyone's starting point with tidyverse. [Solutions to exercises](https://jrnold.github.io/r4ds-exercise-solutions/).
+[R for Data Science](https://r4ds.had.co.nz/) - a book by Grolemund and Wickham, which should be everyone's starting point with tidyverse  
+[Solutions to exercises](https://jrnold.github.io/r4ds-exercise-solutions/)
 
-[Hands-On Programming with R](https://rstudio-education.github.io/hopr/) - an introduction to programming with R by Grolemund.
-[Advanced R](http://adv-r.had.co.nz/) - a book about advanced programming with R by Wickham.
+[Hands-On Programming with R](https://rstudio-education.github.io/hopr/) - an introduction to programming with R by Grolemund  
+[Advanced R](http://adv-r.had.co.nz/) - a book about advanced programming with R by Wickham  
 
 ---
 ### Base R
