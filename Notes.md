@@ -9,11 +9,11 @@
 ---
 ### Resources
 
-[R Project](https://www.r-project.org/) - the R Project homepage
-[CRAN](https://cran.r-project.org/) - download R
-[RStudio](https://www.rstudio.com/) - download RStudio (IDE)
-[Bioconductor](http://www.bioconductor.org/) - bioinformatics packages
-[Tidyverse](https://www.tidyverse.org/) - tidyverse packages for data science
+[R Project](https://www.r-project.org/) - the R Project homepage  
+[CRAN](https://cran.r-project.org/) - download R  
+[RStudio](https://www.rstudio.com/) - download RStudio (IDE)  
+[Bioconductor](http://www.bioconductor.org/) - bioinformatics packages  
+[Tidyverse](https://www.tidyverse.org/) - tidyverse packages for data science  
 
 [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) - a comprehensive list of cheatsheets for many R packages
 
