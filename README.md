@@ -18,6 +18,11 @@ Hello and welcome to this course!
 [Answers](Answers.md) - answers to exercises.
 
 ---
+### Acknowledgements
+
+I have relied heavily on Garrett Grolemund and Hadley Wickham's [wonderful book](https://r4ds.had.co.nz/) and the [solutions](https://jrnold.github.io/r4ds-exercise-solutions/) to it by Jeffrey Arnold. I also picked examples of base R functions from [Learn X in Y minutes](https://learnxinyminutes.com/docs/r/). Finally, I wouldn't be able to use R without the wonderful [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/), too many to list individually.
+
+---
 ### License
 
 This material is released under a
