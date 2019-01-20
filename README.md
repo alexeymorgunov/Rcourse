@@ -4,7 +4,7 @@ Hello and welcome to this course!
 
 **Part II BBS Bioinformatics** - 15:00-17:00, 21 Jan 2019
 1. We begin by working through the [Tidyverse](Tidyverse.md) guided exercise. You can either copy what I am doing on the screen or work through it faster on your own. You may find [Notes](Notes.md) useful to brush up on some base R features and find further study resources.
-2. Sections of [Exercises](Exercises.md) are linked within [Tidyverse](Tidyverse.md). We will pause to solve a couple of sections at a time. [Answers](Answers.md) to exercises are available but please only check them once you have given the exercises a fair try. I will be walking around the room if you have any questions.
+2. Sections of [Exercises](Exercises.md) are linked within [Tidyverse](Tidyverse.md). We will pause to solve some exercises from time to time. [Answers](Answers.md) to exercises are available but please only check them once you have given the exercises a fair try. I will be walking around the room if you have any questions.
 
 ---
 ## List of pages

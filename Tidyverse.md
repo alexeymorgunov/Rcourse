@@ -77,6 +77,8 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 # you can experiment with other aesthetics for geom_smooth(): linetype, group, colour
 ```
 
+Try exercise 1 from the [Data visualisation](exercises/data-visualisation) section.
+
 ---
 ### License
 

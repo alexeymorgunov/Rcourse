@@ -13,7 +13,35 @@ NA and logicals
 ---
 ### Data visualisation
 
+1. Recreate the R code necessary to generate the following graphs.
 
+(Going by rows first)
+```R
+# 1
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_smooth(se = FALSE)
+# 2
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_smooth(aes(group = drv), se = FALSE)
+# 3
+ggplot(mpg, aes(x = displ, y = hwy, colour = drv)) +
+  geom_point() +
+  geom_smooth(se = FALSE)
+# 4
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(colour = drv)) +
+  geom_smooth(se = FALSE)
+# 5
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(colour = drv)) +
+  geom_smooth(aes(linetype = drv), se = FALSE)
+# 6
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(size = 4, colour = "white") +
+  geom_point(aes(colour = drv))
+```
 
 ---
 ### License
