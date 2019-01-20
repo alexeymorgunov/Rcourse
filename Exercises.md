@@ -47,19 +47,19 @@ near(sqrt(2) ^ 2, 2)
 ---
 ### Data transformation
 
-1. Find all flights that
-  a) Had an arrival delay of two or more hours.
-  b) Flew to Houston (IAH or HOU).
-  c) Were operated by United, American or Delta.
-  d) Departed in summer (June, July and August).
-  e) Arrived more than two hours late, but didn't leave late.
-  f) Were delayed by at least an hour, but made up over 30 minutes in flight.
-  g) Departed between midnight and 6am (inclusive).
+1. Find all flights that  
+  a) Had an arrival delay of two or more hours.  
+  b) Flew to Houston (IAH or HOU).  
+  c) Were operated by United, American or Delta.  
+  d) Departed in summer (June, July and August).  
+  e) Arrived more than two hours late, but didn't leave late.  
+  f) Were delayed by at least an hour, but made up over 30 minutes in flight.  
+  g) Departed between midnight and 6am (inclusive).  
 
-2. a) How would you sort all missing values in `dep_time` to the start?
-   b) Sort flights to find the most delayed flights.
-   c) Find the flights that left the earliest.
-   d) Find the fastest flights (by average air speed).
+2. a) How would you sort all missing values in `dep_time` to the start?  
+   b) Sort flights to find the most delayed flights.  
+   c) Find the flights that left the earliest.  
+   d) Find the fastest flights (by average air speed).  
 
 3. a) Convert `dep_time` and `sched_dep_time` to number of minutes since midnight, which is an easier representation to compute with.
    b) EXTRA (hard). How would you expect `dep_time`, `sched_dep_time` and `dep_delay` to be related? Show it for all cases.
