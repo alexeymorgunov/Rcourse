@@ -34,10 +34,26 @@ Data types
 ```R
 # numerics are floating point numbers, stored as vectors
 5
+6.02e23
+class(Inf)
 2 + 2
 (2 + 2) * 3
-c(2,3,4,5)
-6.02e23
+0 / 0   # gives NaN
+c(1,2,3) + c(1,2,3)   # c(2,4,6)
+c(1,2,3) - 1   # c(0,1,2)
+
+# characters (strings are also characters in R)
+length(c("a", "b", "c"))   # 3
+substr(c("Hello", 1, 3))   # "Hel"   # indexing from 1!
+gsub("l", "r", "Hello")    # "Herro"
+as.character(c(6, 8))
+
+# logicals are TRUE and False, but also NA (missing data)
+# &, |, ==, !=, <, >, <=, >=
+as.logical(c(1,0,1,1))
+
+# factors - for categorical data, can be ordered or unordered
+factor(c("female", "female", "male", NA, "female"))
 ```
 
 
