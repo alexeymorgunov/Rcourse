@@ -13,7 +13,9 @@ NA and logicals
 ---
 ### Data visualisation
 
+1. Recreate the R code necessary to generate the following graphs.
 
+![plots](exercises/exercise_plots.png)
 
 ---
 ### License
