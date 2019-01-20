@@ -63,7 +63,7 @@ near(sqrt(2) ^ 2, 2)
 
 3. a) Convert `dep_time` and `sched_dep_time` to number of minutes since midnight, which is an easier representation to compute with.  
    b) EXTRA (hard). How would you expect `dep_time`, `sched_dep_time` and `dep_delay` to be related? Show it for all cases.  
-   c) EXTRA (very hard and long). How would you expect `air_time`, `arr_time` and `dep_time` to be related? Show it for all cases, if possible.  
+   c) EXTRA (very hard). How would you expect `air_time`, `arr_time` and `dep_time` to be related? Show it for all cases, if possible.  
 
 4. a) Plot the distribution of average delays by individual planes (identified by their tail number). Compare doing so with `geom_freqpoly()` and `geom_point()`.  
    b) Look at the number of cancelled flights per day. Is there a pattern? Is the proportion of cancelled flights related to the average delay?  
