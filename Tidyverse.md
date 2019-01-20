@@ -26,8 +26,8 @@ NA   # for missing data
 5 != 5
 6 > 5
 6 <= 7
-TRUE & FALSE
-TRUE | FALSE
+TRUE & TRUE
+TRUE | TRUE
 # vectors of values
 c(1, 2, 3)
 # function arguments
@@ -37,6 +37,8 @@ seq(2, 3, by=0.5)
 ?mean                # help for a specific function
 help.search('mean')  # search help files
 ```
+
+Try exercise 1 from the [Prerequisites](Exercises.md#prerequisites) section.
 
 Check that everything we need is installed...
 ```R
@@ -148,7 +150,95 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
 ---
 ### Data transformation
 
+Filter rows
+```R
+# let's take a look at the flights dataset
+flights
+# filter() subsets observations
+filter(flights, month == 1, day == 1)
+filter(flights, month == 11 | month == 12)
+filter(flights, month %in% c(11, 12))
+filter(flights, is.na(dep_delay))
+```
 
+Try exercise 1 from the [Data transformation](Exercises.md#data-transformation) section.
+
+Arrange rows
+```R
+# arrange() changes the order of observations
+arrange(flights, dep_time, arr_time)
+arrange(flights, desc(dep_delay))
+# note that NA are sorted to the end
+```
+
+Try exercise 2 from the [Data transformation](Exercises.md#data-transformation) section.
+
+Select columns
+```R
+# select() subsets variables
+select(flights, year, month, day)
+select(flights, year:day)
+select(flights, time_hour, air_time, everything())
+# check other options in ?select: starts_with(), ends_with(), contains() etc.
+# rename() renames variables, keeps those not mentioned
+```
+
+Create new columns
+```R
+# let's make a smaller dataset
+flights_sml <- select(flights, year:day, ends_with("delay"), distance, air_time)
+# mutate() adds new variables
+mutate(flights_sml, gain = dep_delay - arr_delay, speed = distance / air_time * 60)
+# transmute() is a version that only keeps the new variables
+```
+
+Try exercise 3 from the [Data transformation](Exercises.md#data-transformation) section.
+
+Summaries
+```R
+# summarise() collapses data frame to a single row
+summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
+# group_by() changes the unit of analysis from the full data frame to groups
+by_day <- group_by(flights, year, month, day)
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
+# the pipe %>% provides an easier way to combine multiple operations
+flights %>%
+  group_by(year, month, day) %>%
+  summarise(delay = mean(dep_delay, na.rm = TRUE))
+
+# long example - plotting average delay vs distance
+flights %>%
+  group_by(dest) %>%
+  summarise(
+    count = n(),
+    dist = mean(distance, na.rm = TRUE),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %>%
+  filter(count > 20, dest != "HNL") %>%
+  ggplot(aes(x = dist, y = delay)) +
+    geom_point(aes(size = count), alpha = 1/3) +
+    geom_smooth(se = FALSE)
+
+# annoying to always remove NA, let's filter
+not_cancelled <- flights %>% filter(!is.na(dep_delay), !is.na(arr_delay))
+
+# count() is a shorthand for summarise+count
+not_cancelled %>% count(dest)
+not_cancelled %>% count(tailnum, wt = distance)
+
+# there is also, naturally, ungroup()
+
+# grouped mutates and filters standardise manipulation across groups
+# proportion of flights delayed to popular destinations only
+flights %>%
+  group_by(dest) %>%
+  filter(n() > 365) %>%
+  filter(arr_delay > 0) %>%
+  mutate(prop_delay = arr_delay / sum(arr_delay)) %>%
+  select(year:day, dest, arr_delay, prop_delay)
+```
+
+Try exercise 4 from the [Data transformation](Exercises.md#data-transformation) section.
 
 ---
 ### License
