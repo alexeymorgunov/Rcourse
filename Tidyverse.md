@@ -105,7 +105,7 @@ ggplot(data = diamonds) +
 
 Try exercise 2 from the [Data visualisation](Exercises.md#data-visualisation) section.
 
-*More layers*
+##### More layers
 ```R
 # bar chart position adjustments
 ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
