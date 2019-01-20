@@ -2,8 +2,10 @@
 
 # R is a calculator
 2 + 2 * 3
+
 # variables are assigned with <-
 x <- 5
+
 # main data types are numerics, characters and logicals
 5
 "Hello"
@@ -17,23 +19,29 @@ NA   # for missing data
 6 <= 7
 TRUE & TRUE
 TRUE | TRUE
+
 # vectors of values
 c(1, 2, 3)
+
 # function arguments
 # function_name(arg1 = val1, arg2 = val2, ...)
 seq(2, 3, by=0.5)
+
 # help
 ?mean                # help for a specific function
 help.search('mean')  # search help files
 
 
-Try exercise 1 from the Prerequisites section.
+# Try exercise 1 from the Prerequisites section.
+
+
 
 #### Check that everything we need is installed...
 
 # load the packages
 library(tidyverse)
 library(nycflights13)
+
 # if not installed, install the required packages, then load
 install.packages("tidyverse")
 install.packages("nycflights13")
@@ -68,7 +76,9 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_smooth()
 # you can experiment with other aesthetics for geom_smooth(): linetype, group, colour
 
-Try exercise 1 from the Data visualisation section.
+
+# Try exercise 1 from the Data visualisation section.
+
 
 #### More examples of ggplot2 functionality
 
@@ -90,7 +100,9 @@ ggplot(data = diamonds) +
     fun.y = median
   )
 
-Try exercise 2 from the Data visualisation section.
+
+# Try exercise 2 from the Data visualisation section.
+
 
 #### More layers
 
@@ -131,6 +143,7 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
     title = "Highway MPG by car class",
     subtitle = "1999-2008",
     caption = "Source: http://fueleconomy.gov"
+  )
 
 
 
@@ -146,7 +159,9 @@ filter(flights, month == 11 | month == 12)
 filter(flights, month %in% c(11, 12))
 filter(flights, is.na(dep_delay))
 
-Try exercise 1 from the Data transformation section.
+
+# Try exercise 1 from the Data transformation section.
+
 
 #### Arrange rows
 
@@ -155,7 +170,9 @@ arrange(flights, dep_time, arr_time)
 arrange(flights, desc(dep_delay))
 # note that NA are sorted to the end
 
-Try exercise 2 from the Data transformation section.
+
+# Try exercise 2 from the Data transformation section.
+
 
 #### Select columns
 
@@ -166,6 +183,7 @@ select(flights, time_hour, air_time, everything())
 # check other options in ?select: starts_with(), ends_with(), contains() etc.
 # rename() renames variables, keeps those not mentioned
 
+
 #### Create new columns
 
 # let's make a smaller dataset
@@ -174,7 +192,9 @@ flights_sml <- select(flights, year:day, ends_with("delay"), distance, air_time)
 mutate(flights_sml, gain = dep_delay - arr_delay, speed = distance / air_time * 60)
 # transmute() is a version that only keeps the new variables
 
-Try exercise 3 from the Data transformation section.
+
+# Try exercise 3 from the Data transformation section.
+
 
 #### Summaries
 
@@ -219,5 +239,5 @@ flights %>%
   mutate(prop_delay = arr_delay / sum(arr_delay)) %>%
   select(year:day, dest, arr_delay, prop_delay)
 
-Try exercise 4 from the Data transformation section.
 
+# Try exercise 4 from the Data transformation section.
