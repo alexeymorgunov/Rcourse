@@ -144,7 +144,7 @@ flights_deptime <- mutate(flights,
   dep_time_min = (dep_time %/% 100 * 60 +
     dep_time %% 100) %% 1440,
   sched_dep_time_min = (sched_dep_time %/% 100 * 60 +
-    sched_dep_time %% 100) %% 1440
+    sched_dep_time %% 100) %% 1440,
   dep_delay_diff = dep_delay - dep_time_min + sched_dep_time_min
 )
 filter(flights_deptime, dep_delay_diff != 0)
@@ -237,7 +237,7 @@ flights %>%
   summarise(n_dest = n()) %>%
   arrange(desc(n_dest))
 
-g)
+# g)
 flights %>%
   group_by(tailnum) %>%
   filter(cumall(dep_delay <= 60)) %>%
