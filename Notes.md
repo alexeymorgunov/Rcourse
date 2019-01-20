@@ -19,7 +19,7 @@
 * [Base R](cheatsheets/base-r.pdf)
 * [Importing data](cheatsheets/data-import.pdf)
 * [Transforming data](cheatsheets/data-transformation.pdf)
-* [Visualisation](cheatsheets/data-visualisation-2.1.pdf)
+* [Visualisation](cheatsheets/data-visualization-2.1.pdf)
 
 [R for Data Science](https://r4ds.had.co.nz/) - a book by Grolemund and Wickham, which should be everyone's starting point with tidyverse  
 [Solutions to exercises](https://jrnold.github.io/r4ds-exercise-solutions/)
@@ -29,6 +29,17 @@
 
 ---
 ### Base R
+
+Data types
+```R
+# numerics are floating point numbers, stored as vectors
+5
+2 + 2
+(2 + 2) * 3
+c(2,3,4,5)
+6.02e23
+```
+
 
 
 ---
