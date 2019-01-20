@@ -4,7 +4,6 @@
 
 1. [Resources](#resources)
 2. [Base R](#base-r)
-3. [Tidyverse](#tidyverse)
 
 ---
 ### Resources
@@ -117,12 +116,6 @@ tidyverse_update()
 ```
 
 For more, please check the [base R cheatsheet](cheatsheets/base-r.pdf) and [Learn X in Y minutes](https://learnxinyminutes.com/docs/r/) (where some of the examples were taken from). In particular, matrices, data tables and plotting functions are very useful but are superseded by tidyverse package functionalities. Statistical methods are worth learning more about too.
-
----
-### tidyverse
-
-
-
 
 ---
 ### License
