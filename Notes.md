@@ -4,7 +4,7 @@
 
 1. [Resources](#resources)
 2. [Base R](#base-r)
-3.
+3. [Tidyverse](#tidyverse)
 
 ---
 ### Resources
@@ -15,7 +15,11 @@
 [Bioconductor](http://www.bioconductor.org/) - bioinformatics packages  
 [Tidyverse](https://www.tidyverse.org/) - tidyverse packages for data science  
 
-[Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) - a comprehensive list of cheatsheets for many R packages
+[Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) - a comprehensive list of cheatsheets for many R packages, the most useful of which are provided here as well:
+* [Base R](#cheatsheets/base-r.pdf)
+* [Importing data](#cheatsheets/data-import.pdf)
+* [Transforming data](#cheatsheets/data-transformation.pdf)
+* [Visualisation](#cheatsheets/data-visualisation-2.1.pdf)
 
 [R for Data Science](https://r4ds.had.co.nz/) - a book by Grolemund and Wickham, which should be everyone's starting point with tidyverse  
 [Solutions to exercises](https://jrnold.github.io/r4ds-exercise-solutions/)
@@ -25,6 +29,11 @@
 
 ---
 ### Base R
+
+
+---
+### tidyverse
+
 
 
 
