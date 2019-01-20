@@ -38,14 +38,14 @@ Data types
 class(Inf)
 2 + 2
 (2 + 2) * 3
-0 / 0   # gives NaN
+0 / 0                 # gives NaN
 c(1,2,3) + c(1,2,3)   # c(2,4,6)
-c(1,2,3) - 1   # c(0,1,2)
+c(1,2,3) - 1          # c(0,1,2)
 
 # characters (strings are also characters in R)
-length(c("a", "b", "c"))   # 3
+length(c('a', 'b', 'c'))   # 3
 substr(c("Hello", 1, 3))   # "Hel"   # indexing from 1!
-gsub("l", "r", "Hello")    # "Herro"
+gsub('l', 'r', "Hello")    # "Herro"
 as.character(c(6, 8))
 
 # logicals are TRUE and False, but also NA (missing data)
@@ -56,7 +56,67 @@ as.logical(c(1,0,1,1))
 factor(c("female", "female", "male", NA, "female"))
 ```
 
+Variables, functions, control flow
+```R
+# variable assignment
+x <- 5
 
+# function assignment
+add_one <- function(x) {
+    y <- x + 1
+    return(y)
+}
+
+# for loop
+for (i in 1:4) {
+  print(i)
+}
+
+# while loop
+a <- 10
+while (a > 4) {
+    cat(a, "...", sep = "")
+    a <- a - 1
+}
+
+# if-else statement
+if (4 > 3) {
+    print("4 is greater than 3")
+} else {
+    print("4 is not greater than 3")
+}
+```
+
+Vectors
+```R
+c(2, 4, 6)           # 2 4 6
+2:6                  # 2 3 4 5 6
+seq(2, 3, by=0.5)    # 2.0 2.5 3.0
+rep(1:2, times=3)    # 1 2 1 2 1 2
+rep(1:2, each=3)     # 1 1 1 2 2 2
+
+x <- 6:10
+x[3]                 # 8
+x[-3]                # 6 7 9 10
+x[2:4]               # 7 8 9
+x[-(2:4)]            # 6 10
+x[c(1,5)]            # 6 10
+x[x == 9]            # 9
+x[x > 8]             # 9 10
+x[x %in% c(6, 7)]    # 6 7
+```
+
+Other
+```R
+?mean                # help for a specific function
+help.search('mean')  # search help files
+
+install.packages("tidyverse")
+library(tidyverse)   # load the library
+tidyverse_update()    
+```
+
+For more, please check the [base R cheatsheet](cheatsheets/base-r.pdf) and [Learn X in Y minutes](https://learnxinyminutes.com/docs/r/) (where some of the examples were taken from). In particular, matrices, data tables and plotting functions are very useful but are superseded by tidyverse package functionalities. Statistical methods are worth learning more about too.
 
 ---
 ### tidyverse
