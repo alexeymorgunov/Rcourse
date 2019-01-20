@@ -7,7 +7,7 @@ Hello and welcome to this course!
 2. Sections of [Exercises](Exercises.md) are linked within [Tidyverse](Tidyverse.md). We will pause to solve some exercises from time to time. [Answers](Answers.md) to exercises are available but please only check them once you have given the exercises a fair try. I will be walking around the room if you have any questions.
 
 ---
-## List of pages
+### List of pages
 
 [Notes](Notes.md) - reference style notes about base R and links to many further resources about both base R and tidyverse.
 

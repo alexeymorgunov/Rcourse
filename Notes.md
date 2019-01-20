@@ -47,7 +47,7 @@ substr(c("Hello", 1, 3))   # "Hel"   # indexing from 1!
 gsub('l', 'r', "Hello")    # "Herro"
 as.character(c(6, 8))
 
-# logicals are TRUE and False, but also NA (missing data)
+# logicals are TRUE and FALSE, but also NA (missing data)
 # &, |, ==, !=, <, >, <=, >=
 as.logical(c(1,0,1,1))
 
