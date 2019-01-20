@@ -9,7 +9,7 @@
 ---
 ### Prerequisites
 
-Before we begin...
+#### Before we begin...
 ```R
 # R is a calculator
 2 + 2 * 3
@@ -40,7 +40,7 @@ help.search('mean')  # search help files
 
 Try exercise 1 from the [Prerequisites](Exercises.md#prerequisites) section.
 
-Check that everything we need is installed...
+#### Check that everything we need is installed...
 ```R
 # load the packages
 library(tidyverse)
@@ -53,7 +53,7 @@ install.packages("nycflights13")
 ---
 ### Data visualisation
 
-Experimenting with ggplot2
+#### Experimenting with ggplot2
 ```R
 # let's take a look at the car dataset
 mpg
@@ -82,7 +82,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 
 Try exercise 1 from the [Data visualisation](Exercises.md#data-visualisation) section.
 
-More examples of ggplot2 functionality
+#### More examples of ggplot2 functionality
 ```R
 # let's take a look at the diamonds dataset
 diamonds
@@ -150,7 +150,7 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
 ---
 ### Data transformation
 
-Filter rows
+#### Filter rows
 ```R
 # let's take a look at the flights dataset
 flights
@@ -163,7 +163,7 @@ filter(flights, is.na(dep_delay))
 
 Try exercise 1 from the [Data transformation](Exercises.md#data-transformation) section.
 
-Arrange rows
+#### Arrange rows
 ```R
 # arrange() changes the order of observations
 arrange(flights, dep_time, arr_time)
@@ -173,7 +173,7 @@ arrange(flights, desc(dep_delay))
 
 Try exercise 2 from the [Data transformation](Exercises.md#data-transformation) section.
 
-Select columns
+#### Select columns
 ```R
 # select() subsets variables
 select(flights, year, month, day)
@@ -183,7 +183,7 @@ select(flights, time_hour, air_time, everything())
 # rename() renames variables, keeps those not mentioned
 ```
 
-Create new columns
+#### Create new columns
 ```R
 # let's make a smaller dataset
 flights_sml <- select(flights, year:day, ends_with("delay"), distance, air_time)
@@ -194,7 +194,7 @@ mutate(flights_sml, gain = dep_delay - arr_delay, speed = distance / air_time * 
 
 Try exercise 3 from the [Data transformation](Exercises.md#data-transformation) section.
 
-Summaries
+#### Summaries
 ```R
 # summarise() collapses data frame to a single row
 summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
