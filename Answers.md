@@ -4,6 +4,7 @@
 
 1. [Prerequisites](#prerequisites)
 2. [Data visualisation](#data-visualisation)
+3. [Data transformation](#data-transformation)
 
 ---
 ### Prerequisites
@@ -42,6 +43,23 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(size = 4, colour = "white") +
   geom_point(aes(colour = drv))
 ```
+
+2. What is the default geom associated with `stat_summary()`? How could you rewrite the previous plot (depth vs cut) to use that geom instead of the stat function?
+```R
+ggplot(data = diamonds) +
+  geom_pointrange(
+    mapping = aes(x = cut, y = depth),
+    stat = "summary",
+    fun.ymin = min,
+    fun.ymax = max,
+    fun.y = median
+  )
+```
+
+---
+### Data transformation
+
+
 
 ---
 ### License

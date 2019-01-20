@@ -4,6 +4,7 @@
 
 1. [Prerequisites](#prerequisites)
 2. [Data visualisation](#data-visualisation)
+3. [Data transformation](#data-transformation)
 
 ---
 ### Prerequisites
@@ -78,6 +79,76 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 ```
 
 Try exercise 1 from the [Data visualisation](Exercises.md#data-visualisation) section.
+
+More examples of ggplot2 functionality
+```R
+# let's take a look at the diamonds dataset
+diamonds
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut))
+ggplot(data = diamonds) + stat_count(mapping = aes(x = cut))
+# every geom has a default stat and vice versa, but these can be changed
+
+demo <- diamonds %>% count(cut)
+ggplot(data = demo) + geom_bar(mapping = aes(x = cut, y = n), stat = "identity")
+ggplot(data = demo) + geom_col(mapping = aes(x = cut, y = n))
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, y = ..prop.., group = 1))
+ggplot(data = diamonds) +
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.ymin = min,
+    fun.ymax = max,
+    fun.y = median
+  )
+```
+
+Try exercise 2 from the [Data visualisation](Exercises.md#data-visualisation) section.
+
+More layers
+```R
+# bar chart position adjustments
+ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
+  geom_bar()
+ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
+  geom_bar(position = "fill")
+  ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
+    geom_bar(position = "dodge")
+
+# scatter plot position adjustments
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point()
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point(position = "jitter")
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_jitter()
+
+# coordinate system
+ggplot(data = mpg, mapping = aes(x = drv, y = hwy, colour = class)) +
+  geom_boxplot()
+ggplot(data = mpg, mapping = aes(x = drv, y = hwy, colour = class)) +
+  geom_boxplot() + coord_flip()
+
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() + geom_abline()
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() + geom_abline() + coord_fixed()
+
+# labels
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(
+    y = "Highway MPG",
+    x = "Year",
+    title = "Highway MPG by car class",
+    subtitle = "1999-2008",
+    caption = "Source: http://fueleconomy.gov"
+  )
+```
+
+---
+### Data transformation
+
+
 
 ---
 ### License
