@@ -1,6 +1,6 @@
 ### Prerequisites
 
-# 1. Try to predict what logical (TRUE, FALSE or NA) the following expressions return, 
+# 1. Try to predict what logical (TRUE, FALSE or NA) the following expressions return,
 #    and explain why.
 
 FALSE == FALSE       # TRUE
@@ -56,8 +56,8 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(size = 4, colour = "white") +
   geom_point(aes(colour = drv))
 
-# 2. What is the default geom associated with `stat_summary()`? 
-#    How could you rewrite the previous plot (depth vs cut) to use that geom 
+# 2. What is the default geom associated with `stat_summary()`?
+#    How could you rewrite the previous plot (depth vs cut) to use that geom
 #    instead of the stat function?
 
 ggplot(data = diamonds) +
@@ -73,14 +73,14 @@ ggplot(data = diamonds) +
 
 ### Data transformation
 
-# 1. Find all flights that  
-#   a) Had an arrival delay of two or more hours.  
-#   b) Flew to Houston (IAH or HOU).  
-#   c) Were operated by United, American or Delta.  
-#   d) Departed in summer (June, July and August).  
-#   e) Arrived more than two hours late, but didn't leave late.  
-#   f) Were delayed by at least an hour, but made up over 30 minutes in flight.  
-#   g) Departed between midnight and 6am (inclusive).  
+# 1. Find all flights that
+#   a) Had an arrival delay of two or more hours.
+#   b) Flew to Houston (IAH or HOU).
+#   c) Were operated by United, American or Delta.
+#   d) Departed in summer (June, July and August).
+#   e) Arrived more than two hours late, but didn't leave late.
+#   f) Were delayed by at least an hour, but made up over 30 minutes in flight.
+#   g) Departed between midnight and 6am (inclusive).
 
 # a)
 filter(flights, arr_delay >= 120)
@@ -102,10 +102,10 @@ filter(flights, dep_delay >= 60, dep_delay - arr_delay > 30)
 filter(flights, dep_time <= 600 | dep_time == 2400)
 filter(flights, dep_time %% 2400 <= 600)    # check out modular arithmetic
 
-# 2. a) How would you sort all missing values in `dep_time` to the start?  
-#    b) Sort flights to find the most delayed flights.  
-#    c) Find the flights that left the earliest.  
-#    d) Find the fastest flights (by average air speed).  
+# 2. a) How would you sort all missing values in `dep_time` to the start?
+#    b) Sort flights to find the most delayed flights.
+#    c) Find the flights that left the earliest.
+#    d) Find the fastest flights (by average air speed).
 
 # a)
 arrange(flights, desc(is.na(dep_time)), dep_time)
@@ -114,14 +114,14 @@ arrange(flights, desc(dep_delay))
 # c)
 arrange(flights, dep_delay)
 # d)
-arrange(flights, distance / air_time * 60)
+arrange(flights, desc(distance / air_time * 60))
 
-# 3. a) Convert `dep_time` and `sched_dep_time` to number of minutes since midnight, 
-#       which is an easier representation to compute with.  
-#    b) EXTRA (hard). How would you expect `dep_time`, `sched_dep_time` and `dep_delay` 
-#       to be related? Show it for all cases.  
-#    c) EXTRA (very hard). How would you expect `air_time`, `arr_time` and `dep_time` 
-#       to be related? Show it for all cases, if possible.  
+# 3. a) Convert `dep_time` and `sched_dep_time` to number of minutes since midnight,
+#       which is an easier representation to compute with.
+#    b) EXTRA (hard). How would you expect `dep_time`, `sched_dep_time` and `dep_delay`
+#       to be related? Show it for all cases.
+#    c) EXTRA (very hard). How would you expect `air_time`, `arr_time` and `dep_time`
+#       to be related? Show it for all cases, if possible.
 
 # a)
 flights_mod <- mutate(flights,
@@ -167,21 +167,21 @@ ggplot(flights_airtime, aes(x = air_time_diff)) + geom_histogram(bindwidth = 1)
 # But that is missing from this reduced dataset.
 
 
-# 4. a) Which plane has the worst on-time record? (Delayed the most.)  
-#    b) At what hour of day should you fly if you want to avoid delays as much as possible?  
-#    c) Plot the distribution of average delays by individual planes 
-#       (identified by their tail number). Compare doing so with `geom_freqpoly()` 
-#       and `geom_point()`.  
-#    d) Look at the number of cancelled flights per day. Is there a pattern? 
-#       Is the proportion of cancelled flights related to the average delay?  
-#    e) Delays are typically temporally correlated: even once the problem that caused 
-#       the initial delay has been resolved, later flights are delayed to allow 
-#       earlier flights to leave. Using `lag()`, explore how the delay of a flight 
-#       is related to the delay of the immediately preceding flight.  
-#    f) Find all destinations that are flown by at least two carriers. Use that list of 
-#       destinations to rank the carriers by the number of destinations they serve.  
-#    g) For each plane, count the number of flights before the first delay of 
-#       greater than 1 hour.  
+# 4. a) Which plane has the worst on-time record? (Delayed the most.)
+#    b) At what hour of day should you fly if you want to avoid delays as much as possible?
+#    c) Plot the distribution of average delays by individual planes
+#       (identified by their tail number). Compare doing so with `geom_freqpoly()`
+#       and `geom_point()`.
+#    d) Look at the number of cancelled flights per day. Is there a pattern?
+#       Is the proportion of cancelled flights related to the average delay?
+#    e) Delays are typically temporally correlated: even once the problem that caused
+#       the initial delay has been resolved, later flights are delayed to allow
+#       earlier flights to leave. Using `lag()`, explore how the delay of a flight
+#       is related to the delay of the immediately preceding flight.
+#    f) Find all destinations that are flown by at least two carriers. Use that list of
+#       destinations to rank the carriers by the number of destinations they serve.
+#    g) For each plane, count the number of flights before the first delay of
+#       greater than 1 hour.
 
 # a)
 flights %>%

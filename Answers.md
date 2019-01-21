@@ -123,7 +123,7 @@ arrange(flights, desc(dep_delay))
 # c)
 arrange(flights, dep_delay)
 # d)
-arrange(flights, distance / air_time * 60)
+arrange(flights, desc(distance / air_time * 60))
 ```
 
 3. a) Convert `dep_time` and `sched_dep_time` to number of minutes since midnight, which is an easier representation to compute with.  
