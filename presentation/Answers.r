@@ -124,12 +124,13 @@ arrange(flights, distance / air_time * 60)
 #       to be related? Show it for all cases, if possible.  
 
 # a)
-mutate(flights,
+flights_mod <- mutate(flights,
   dep_time_min = (dep_time %/% 100 * 60 +
     dep_time %% 100) %% 1440,
   sched_dep_time_min = (sched_dep_time %/% 100 * 60 +
     sched_dep_time %% 100) %% 1440
 )
+select(flights_mod, dep_time_min, sched_dep_time_min, everything())
 
 # b)
 # "dep_delay = dep_time - sched_dep_time" is a reasonable assumption?
@@ -165,13 +166,14 @@ ggplot(flights_airtime, aes(x = air_time_diff)) + geom_histogram(bindwidth = 1)
 # Turns out, it is a problem with data. air_time = wheels_off - wheels_in.
 # But that is missing from this reduced dataset.
 
-# 4. a) Plot the distribution of average delays by individual planes 
+
+# 4. a) Which plane has the worst on-time record? (Delayed the most.)  
+#    b) At what hour of day should you fly if you want to avoid delays as much as possible?  
+#    c) Plot the distribution of average delays by individual planes 
 #       (identified by their tail number). Compare doing so with `geom_freqpoly()` 
 #       and `geom_point()`.  
-#    b) Look at the number of cancelled flights per day. Is there a pattern? 
+#    d) Look at the number of cancelled flights per day. Is there a pattern? 
 #       Is the proportion of cancelled flights related to the average delay?  
-#    c) Which plane has the worst on-time record? (Delayed the most.)  
-#    d) At what hour of day should you fly if you want to avoid delays as much as possible?  
 #    e) Delays are typically temporally correlated: even once the problem that caused 
 #       the initial delay has been resolved, later flights are delayed to allow 
 #       earlier flights to leave. Using `lag()`, explore how the delay of a flight 
@@ -182,13 +184,27 @@ ggplot(flights_airtime, aes(x = air_time_diff)) + geom_histogram(bindwidth = 1)
 #       greater than 1 hour.  
 
 # a)
+flights %>%
+  group_by(tailnum) %>%
+  summarise(avg_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  arrange(desc(avg_delay))
+
+# b)
+flights %>%
+  group_by(hour) %>%
+  summarise(avg_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  ggplot(aes(x = hour, y = avg_delay)) +
+  geom_point() +
+  geom_smooth(se = FALSE)
+
+# c)
 not_cancelled %>% group_by(tailnum) %>% summarise(delay = mean(arr_delay)) %>%
   ggplot(aes(x = delay)) + geom_freqpoly(binwidth = 10)
 not_cancelled %>% group_by(tailnum) %>%
   summarise(delay = mean(arr_delay), n = n()) %>%
   ggplot(aes(x = n, y = delay)) + geom_point(alpha = 1/10)
 
-# b)
+# d)
 flights %>%
   mutate(cancelled = (is.na(arr_delay) | is.na(dep_delay))) %>%
   group_by(year, month, day) %>%
@@ -199,20 +215,6 @@ flights %>%
   ggplot(aes(x = avg_dep_delay, y = prop_cancelled)) +
     geom_point() +
     geom_smooth()
-
-# c)
-flights %>%
-  group_by(tailnum) %>%
-  summarise(avg_delay = mean(arr_delay, na.rm = TRUE)) %>%
-  arrange(desc(avg_delay))
-
-# d)
-flights %>%
-  group_by(hour) %>%
-  summarise(avg_delay = mean(arr_delay, na.rm = TRUE)) %>%
-  ggplot(aes(x = hour, y = avg_delay)) +
-    geom_point() +
-    geom_smooth(se = FALSE)
 
 # e)
 flights %>%

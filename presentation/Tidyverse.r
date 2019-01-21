@@ -5,6 +5,7 @@
 
 # variables are assigned with <-
 x <- 5
+x
 
 # main data types are numerics, characters and logicals
 5
@@ -12,6 +13,7 @@ x <- 5
 TRUE
 FALSE
 NA   # for missing data
+class(NA)
 # comparisons
 5 == 5
 5 != 5
@@ -56,6 +58,8 @@ install.packages("nycflights13")
 mpg
 # plot highway fuel efficiency (miles per gallon) 'hwy' vs engine size (litres) 'displ'
 ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))
+ggplot(mpg) + geom_point(aes(x = displ, y = hwy))
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point()
 # let's add the class variable using a different aesthetic
 ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, colour = class))
 # you can experiment with other aesthetics: size, alpha, shape
@@ -89,6 +93,7 @@ ggplot(data = diamonds) + stat_count(mapping = aes(x = cut))
 # every geom has a default stat and vice versa, but these can be changed
 
 demo <- diamonds %>% count(cut)
+demo
 ggplot(data = demo) + geom_bar(mapping = aes(x = cut, y = n), stat = "identity")
 ggplot(data = demo) + geom_col(mapping = aes(x = cut, y = n))
 ggplot(data = diamonds) + geom_bar(mapping = aes(x = cut, y = ..prop.., group = 1))
@@ -111,8 +116,8 @@ ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
   geom_bar()
 ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
   geom_bar(position = "fill")
-  ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
-    geom_bar(position = "dodge")
+ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) +
+  geom_bar(position = "dodge")
 
 # scatter plot position adjustments
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
@@ -139,7 +144,7 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
   coord_flip() +
   labs(
     y = "Highway MPG",
-    x = "Year",
+    x = "Class",
     title = "Highway MPG by car class",
     subtitle = "1999-2008",
     caption = "Source: http://fueleconomy.gov"
@@ -167,7 +172,7 @@ filter(flights, is.na(dep_delay))
 
 # arrange() changes the order of observations
 arrange(flights, dep_time, arr_time)
-arrange(flights, desc(dep_delay))
+arrange(flights, desc(arr_delay))
 # note that NA are sorted to the end
 
 
@@ -188,6 +193,7 @@ select(flights, time_hour, air_time, everything())
 
 # let's make a smaller dataset
 flights_sml <- select(flights, year:day, ends_with("delay"), distance, air_time)
+flights_sml
 # mutate() adds new variables
 mutate(flights_sml, gain = dep_delay - arr_delay, speed = distance / air_time * 60)
 # transmute() is a version that only keeps the new variables
